@@ -5,7 +5,7 @@
   <link href="bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/5bde8e7012.js" crossorigin="anonymous"></script>
-  <title>X-Wing Trade Center</title>
+  <title>Profilom</title>
 
   <style>
     body {
@@ -80,21 +80,22 @@
               Minta Bela
             </td>
             <td>
-              <a class="btn btn-light">Szerkeszt</a>
+              <button class="btn btn-success">Szerkeszt</button>
             </td>
             <td class="bg-white">
               +36/70-123-4567
             </td>
             <td>
-              <a class="btn btn-light">Szerkeszt</a>
+              <button class="btn btn-success">Szerkeszt</button>
             </td>
           </tr>
         </table>
       </div>
     </div>
   </div>
-  <br><br><br>
-  <br><br><br>
+
+  <br><br><br><br><br><br>
+
   <div class="container">
     <div class="row text-black-50">
       <div class="col-3">
@@ -107,12 +108,23 @@
 
           <td class="bg-light">
             <form>
-            <label for="inputPassword5" class="form-label">Régi jelszó</label>
-            <input type="password" id="inputOldPassword" class="form-control">
-            <label for="inputPassword5" class="form-label">Új jelszó</label>
-            <input type="password" id="inputNewPassword1" class="form-control">
-            <label for="inputPassword5" class="form-label">Új jelszó mégegyszer</label>
-            <input type="password" id="inputNewPassword2" class="form-control">
+            <label for="inputOldPassword1" class="form-label mt-1">Régi jelszó</label>
+            <input type="password" id="inputOldPassword" class="form-control mb-2" placeholder="Régi jelszó">
+            
+
+            <label for="inputNewPassword1" class="form-label mt-1">Új jelszó</label>
+            <input type="password" id="inputNewPassword1" class="form-control" placeholder="Új jelszó" >
+
+            
+
+            <label for="inputNewPassword2" class="form-label mt-2">Új jelszó mégegyszer</label>
+            <input type="password" id="inputNewPassword2" class="form-control mb-2" placeholder="Új jelszó mégegyszer" aria-describedby="passwordHelp">
+            <div id="passwordHelp" class="form-text m-auto p-1">
+              A jelszónak tartalmaznia kell 8-20 karaktert, kis- és nagybetűt valamint egy számot.
+            </div>
+
+
+
             <button type="submit" class="btn btn-danger mt-2">Megváltoztat</button>
           </form>
           </td>
