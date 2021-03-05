@@ -1,95 +1,134 @@
 <!doctype html>
 <html>
-  <head>
-    <link href="bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>X-Wing Trade Center</title>
-  
-    <style>
-      body {
-        background-image: url('background.jpg');
-      }
-      </style>
+<head>
+  <link href="bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/5bde8e7012.js" crossorigin="anonymous"></script>
+  <title>X-Wing Trade Center</title>
+
+  <style>
+    body {
+      background-image: url('background.jpg');
+    }
+  </style>
 
 
 </head>
-  <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">X-Wing Trade Center</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/">Főoldal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/profil.html">Profil</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/hirdeteseim.html">Hirdetéseim</a>
-            </li>
 
-          </ul>
-          
+<body>
 
-          <form><a class="btn btn-outline-success" href="/login.html" role="button">Bejelentkezés</a></form>
-                <!--<button class="btn btn-outline-success" type="submit">-->
-         
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">X-Wing Trade Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Főoldal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profil.html">Profil</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/hirdeteseim.html">Hirdetéseim</a>
+          </li>
+
+        </ul>
+
+
+        <form><a class="btn btn-outline-success" href="/login.html" role="button">Bejelentkezés</a></form>
+        <!--<button class="btn btn-outline-success" type="submit">-->
+
       </div>
-    </nav>
+    </div>
+  </nav>
 
 
-    
 
-    <div class="container">
-      <div class="row text-black-50">
-          <div class="col-6">
-               <table class="table table-striped table-borderless">
-                 <tr>
-                  <th>
-                    <h2 class="text-white">Adatok</h2>
-                  </th>
-                 </tr>
-                   <tr class="bg-white">
-                       <th>
-                           Hirdetés
-                       </th>
-                       <th>
-                           Feladó
-                       </th>
-                       <th>
-                           &nbsp;
-                       </th>
 
-                   </tr>
-                   <tr class="bg-white">
-                       <td>
-                           Elado T-65 X-Wing minden tartozekaval.
-                       </td>
-                       <td>
-                           Minta Bela
-                       </td>
-                       <td>
-                           
-                       </td>
-                   </tr>
-               </table>
-          </div>
+  <div class="container">
+    <div class="row text-black-50">
+      <div class="col-6">
+        <table class="table table-striped table-borderless">
+          <tr>
+            <th>
+              <h2 class="text-white">Adatok</h2>
+            </th>
+          </tr>
+          <tr>
+            <th class="bg-white">
+              Név
+            </th>
+            <th>
+              &nbsp;
+            </th>
+            <th class="bg-white">
+              Telefonszám
+            </th>
+            <th>
+              &nbsp;
+            </th>
+
+          </tr>
+          <tr>
+            <td class="bg-white">
+              Minta Bela
+            </td>
+            <td>
+              <a class="btn btn-light">Szerkeszt</a>
+            </td>
+            <td class="bg-white">
+              +36/70-123-4567
+            </td>
+            <td>
+              <a class="btn btn-light">Szerkeszt</a>
+            </td>
+          </tr>
+        </table>
       </div>
+    </div>
+  </div>
+  <br><br><br>
+  <br><br><br>
+  <div class="container">
+    <div class="row text-black-50">
+      <div class="col-3">
+        <table class="table table-borderless">
+          <tr>
+            <th>
+              <h2 class="text-white">Jelszó módosítás</h2>
+            </th>
+          </tr>
+
+          <td class="bg-light">
+            <form>
+            <label for="inputPassword5" class="form-label">Régi jelszó</label>
+            <input type="password" id="inputOldPassword" class="form-control">
+            <label for="inputPassword5" class="form-label">Új jelszó</label>
+            <input type="password" id="inputNewPassword1" class="form-control">
+            <label for="inputPassword5" class="form-label">Új jelszó mégegyszer</label>
+            <input type="password" id="inputNewPassword2" class="form-control">
+            <button type="submit" class="btn btn-danger mt-2">Megváltoztat</button>
+          </form>
+          </td>
+
+        </table>
+      </div>
+    </div>
   </div>
 
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
 
-  </body>
 </html>
-
