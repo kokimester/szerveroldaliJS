@@ -1,0 +1,1 @@
+// elkuldi a felhasznalonak az uj jelszavat

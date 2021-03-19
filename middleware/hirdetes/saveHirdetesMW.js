@@ -1,0 +1,1 @@
+// elmenti az eppen letrehozott/szerkesztett hirdetest az adatbazisba

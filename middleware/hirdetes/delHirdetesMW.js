@@ -1,0 +1,1 @@
+// kitorli a megadott hirdetest az adatbazisbol

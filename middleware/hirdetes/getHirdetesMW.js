@@ -1,0 +1,1 @@
+// lekerdezi a megadott ID-ju hirdetest az adatbazisbol.

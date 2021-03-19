@@ -1,0 +1,1 @@
+// lekerdezi egy user hirdeteseit, abban az esetben, ha ez nem onmaga

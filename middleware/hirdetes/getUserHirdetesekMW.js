@@ -1,0 +1,1 @@
+// lekerdezi egy user sajat hirdeteseit

@@ -1,0 +1,1 @@
+// lementi az eppen ujonnan megadott jelszot

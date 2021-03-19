@@ -1,0 +1,1 @@
+// lementi az eppen szerkesztett/letrehozott felhasznalot
