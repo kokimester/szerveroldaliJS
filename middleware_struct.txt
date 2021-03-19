@@ -1,0 +1,99 @@
+
+Userek es hirdetesek
+-index.html - osszes hirdetes egy helyen
+-login.html - bejelentkezes
+-regisztracio.html - regisztracio (loginrol elerheto)
+-elfelejtett.html - elfelejtett jelszo (loginrol elerheto)
+-profil.html - egy user sajat profilja edit + save + cancel
+-hirdeteseim.html - egy user sajat hirdetesei new + edit + save + cancel
+-hirdetes.html - egy adott hirdetes endpointja, hivatkozas a feladora
+-masikprofil.html - egy user profilja kivulrol
+
+MiddleWarek
+
+renderMW
+
+/middleware/auth
+	checkUserLoginMW
+	authMW
+
+/middleware/hirdetes
+	getHirdetesekMW
+	getHirdetesMW
+	saveHirdetesMW
+	getUserHirdetesekMW
+	getUserHirdetesekIfNotSelfMW
+	delHirdetesMW
+
+/middleware/user
+	getUserByEmailMW
+	getUserMW
+	saveUserMW
+	sendNewPwMW
+	saveNewPwMW
+	
+
+
+
+Routing
+
+GET / - index.html
+	getHirdetesekMW
+	renderMW
+
+GET /hirdetes - hirdeteseim.html - sajat hirdetesei a usernek
+	authMW
+	getUserHirdetesekMW
+	renderMW
+
+GET,POST /hirdetes/new - uj hirdetes hozzaadasa
+	authMW
+	saveHirdetesMW
+	renderMW
+
+GET 	/hirdetes/get/:hirdetesid - egy adott hirdetes
+	authMW - attol fugg hogy ove e vagy nem
+	getHirdetesMW
+	renderMW
+
+GET,POST /hirdetes/edit/:hirdetesid
+	authMW
+	getHirdetesMW
+	saveHirdetesMW
+	renderMW
+
+GET, POST /hirdetes/del/:hirdetesid
+	autMW
+	getHirdetesMW
+	delHirdetesMW
+
+GET	/profil/:userid - profil.html / masikprofil.html - egy adott user profilja
+	authMW
+	getUserMW
+	getUserHirdetesekIfNotSelfMW
+	renderMW
+
+GET,POST /profil/:userid/edit - profil.html - sajat profil szerkesztese
+	authMW
+	getUserMW
+	saveUserMW
+	saveNewPwMW
+		ha volt szerkesztve
+	renderMW
+
+GET,POST /login - login.html
+	getUserByEmailMW
+	checkUserLoginMW
+	renderMW
+
+GET,POST /login/register - regisztracio.html
+	createUserMW
+	saveUserMW
+	renderMW
+
+GET,POST /login/newpassword - elfelejtett.html
+	getUserByEmailMW
+	sendNewPwMW
+	saveNewPwMW
+
+
