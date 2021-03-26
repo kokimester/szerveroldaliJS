@@ -23,23 +23,25 @@
                      </th>
 
                  </tr>
+                 <% hirdetesek.forEach(function(egyHirdetes){ %>
                  <tr>
                      <td>
-                        Elado T-65 X-Wing minden tartozekaval.
+                        <%= egyHirdetes.szoveg %>
                      </td>
                      <td>
-                       T-65 X-Wing
+                       <%= egyHirdetes.tipus %>
                      </td>
                      <td>
-                       Elad
+                       <%= egyHirdetes.hirdetestipus %>
                      </td>
                      <td>
-                         Minta Bela
+                         <%= user.name %>
                      </td>
                      <td class="col-2">
-                         <a class="btn btn-outline-primary" href="/hirdetes/get/123">Ugrás a hirdetésre</a>
+                         <a class="btn btn-outline-primary" href=<%= '/hirdetes/get/' + egyHirdetes._id %>>Ugrás a hirdetésre</a>
                      </td>
                  </tr>
+                 <% }); %>
              </table>
         </div>
     </div>
@@ -49,7 +51,7 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-12">
-        <form><a class="btn btn-lg btn-success" href="/hirdetes.html" role="button"><i class="fas fa-plus-circle"></i> Hirdetés hozzáadása</a></form>
+        <form><a class="btn btn-lg btn-success" href="/hirdetes/new" role="button"><i class="fas fa-plus-circle"></i> Hirdetés hozzáadása</a></form>
       </div>
     </div>
   </div>

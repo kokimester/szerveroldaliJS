@@ -25,6 +25,7 @@ module.exports = function(app) {
 
     app.get('/hirdetes',
         authMW(objRepo),
+        getUserMW(objRepo),
         getUserHirdetesekMW(objRepo),
         renderMW(objRepo,'hirdeteseim'));
 
@@ -35,6 +36,7 @@ module.exports = function(app) {
 
     app.get('/hirdetes/get/:hirdetesid',
         authMW(objRepo),
+        getUserMW(objRepo),
         getHirdetesMW(objRepo),
         renderMW(objRepo,'hirdetes'));
 

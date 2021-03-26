@@ -23,23 +23,25 @@
               </th>
 
             </tr>
-            <tr>
-              <td>
-                Elado T-65 X-Wing minden tartozekaval.
-              </td>
-              <td>
-                T-65 X-Wing
-              </td>
-              <td>
-                Elad
-              </td>
-              <td>
-                Minta Bela
-              </td>
-              <td class="col-2">
-                <a class="btn btn-outline-primary" href="/hirdetes/get/123">Ugrás a hirdetésre</a>
-              </td>
-            </tr>
+            <% hirdetesek.forEach(function(egyHirdetes){ %>
+              <tr>
+                  <td>
+                     <%= egyHirdetes.szoveg %>
+                  </td>
+                  <td>
+                    <%= egyHirdetes.tipus %>
+                  </td>
+                  <td>
+                    <%= egyHirdetes.hirdetestipus %>
+                  </td>
+                  <td>
+                      <%= egyHirdetes.felado %>
+                  </td>
+                  <td class="col-2">
+                      <a class="btn btn-outline-primary" href=<%= '/hirdetes/get/' + egyHirdetes._id %>>Ugrás a hirdetésre</a>
+                  </td>
+              </tr>
+              <% }); %>
           </table>
         </div>
       </div>

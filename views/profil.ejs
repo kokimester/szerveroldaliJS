@@ -29,24 +29,27 @@
             </tr>
             <tr>
               <td class="bg-white">
-                Minta Bela
+                <%= user.name %>
               </td>
               <td>
-                <button class="btn btn-success">Szerkeszt</button>
+                
               </td>
               <td class="bg-white">
-                +36 70 123 4567
+                <%= user.phone %>
               </td>
               <td>
-                <button class="btn btn-success">Szerkeszt</button>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="btn btn-success" href=<%= '/profil/' + user._id + '/edit' %>> Adatok szerkesztése</a>>
               </td>
             </tr>
           </table>
         </div>
       </div>
     </div>
-
-    <a class="btn btn-success" href=<%= '/profil/' + user._id + '/edit' %>></a>>
 
     <br><br><br><br><br><br>
 
