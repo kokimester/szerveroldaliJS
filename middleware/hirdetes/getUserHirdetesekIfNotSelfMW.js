@@ -4,7 +4,7 @@ var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
     return function(req, res, next) {
-        console.log('getting given user\'s hirdetesek');
+        console.log('getting given user\'s hirdetesek: ' + JSON.stringify(res.locals));
         next();
     }
 }

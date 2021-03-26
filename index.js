@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 app.set('view engine', 'ejs')
 
-
-app.use(express.static('static'));
+app.use('/public',express.static('public'));
+//app.use(express.static('static'));
 
 
 require('./routes/index')(app);
