@@ -26,6 +26,7 @@ renderMW
 	delHirdetesMW
 
 /middleware/user
+	createUserMW
 	getUserByEmailMW
 	getUserMW
 	saveUserMW
@@ -51,7 +52,7 @@ GET,POST /hirdetes/new - uj hirdetes hozzaadasa
 	saveHirdetesMW
 	renderMW
 
-GET 	/hirdetes/get/:hirdetesid - egy adott hirdetes
+GET /hirdetes/get/:hirdetesid - egy adott hirdetes
 	authMW - attol fugg hogy ove e vagy nem
 	getHirdetesMW
 	renderMW
