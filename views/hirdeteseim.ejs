@@ -21,6 +21,9 @@
                      <th>
                          &nbsp;
                      </th>
+                     <th>
+                         &nbsp;
+                     </th>
 
                  </tr>
                  <% hirdetesek.forEach(function(egyHirdetes){ %>
@@ -39,6 +42,9 @@
                      </td>
                      <td class="col-2">
                          <a class="btn btn-outline-primary" href=<%= '/hirdetes/get/' + egyHirdetes._id %>>Ugrás a hirdetésre</a>
+                     </td>
+                     <td>
+                      <a class="btn btn-warning" href=<%= '/hirdetes/edit/' + egyHirdetes._id %>>Hirdetés szerkesztése</a>
                      </td>
                  </tr>
                  <% }); %>
