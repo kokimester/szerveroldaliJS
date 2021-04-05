@@ -1,0 +1,112 @@
+<%- include('header',{pagetitle: 'Saját profilod szerkesztése' }) -%>
+    <%- include('menu',{activepage:'profil'}) -%>
+
+
+
+        <div class="container">
+            <div class="row text-black-50">
+                <div class="col-6">
+                    <form method="POST" >
+                        <input type="hidden" name="ezvajonmirejo" value="<%= user._id%>"/>
+                        <table class="table table-striped table-borderless">
+                            <tr>
+                                <th>
+                                    <h2 class="text-white">Adatok</h2>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="bg-white">
+                                    Név
+                                </th>
+                                <th>
+                                    &nbsp;
+                                </th>
+                                <th class="bg-white">
+                                    Telefonszám
+                                </th>
+                                <th>
+                                    &nbsp;
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <div class="form-group">
+                                    <td class="bg-white">
+                                        <input type="text" class="form-control" id="nev" name="nev" 
+                                        value="<%= user.name %>">
+                                      
+                                    </td>
+                                </div>
+                                <td>
+
+                                </td>
+                                <div class="form-group">
+                                    <td class="bg-white">
+                                        <input type="text" class="form-control" id="telefon" name="telefon" 
+                                        value="<%= user.phone %>">
+                                        
+                                    </td>
+                                </div>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" class="btn btn-success" href=<%='/profil/' + user._id %>
+                                    value="Adatok mentése"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="btn btn-danger" href=<%='/profil/' + user._id %>> Mégse </a>>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br><br><br>
+
+        <div class="container">
+          <div class="row text-black-50">
+            <div class="col-3">
+              <table class="table table-borderless">
+                <tr>
+                  <th>
+                    <h2 class="text-white">Jelszó módosítás</h2>
+                  </th>
+                </tr>
+    
+                <td class="bg-light">
+                  <form method="POST" enctype="multipart/form-data">
+                    <label for="inputOldPassword1" class="form-label mt-1">Régi jelszó</label>
+                    <input type="password" id="inputOldPassword" name="inputOldPassword" class="form-control mb-2" placeholder="Régi jelszó">
+    
+    
+                    <label for="inputNewPassword1" class="form-label mt-1">Új jelszó</label>
+                    <input type="password" id="inputNewPassword1" name="inputNewPassword1" class="form-control" placeholder="Új jelszó">
+    
+    
+    
+                    <label for="inputNewPassword2" class="form-label mt-2">Új jelszó mégegyszer</label>
+                    <input type="password" id="inputNewPassword2" name="inputNewPassword2" class="form-control mb-2"
+                      placeholder="Új jelszó mégegyszer" aria-describedby="passwordHelp">
+                    <div id="passwordHelp" class="form-text m-auto p-1">
+                      A jelszónak tartalmaznia kell 8-20 karaktert, kis- és nagybetűt valamint egy számot.
+                    </div>
+    
+    
+    
+                    <input type="submit" class="btn btn-danger mt-2" href=<%='/profil/' + user._id %> value="Megváltoztat"/>
+                  </form>
+                </td>
+    
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <%- include('footer') -%>
