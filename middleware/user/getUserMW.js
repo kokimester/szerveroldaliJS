@@ -3,7 +3,7 @@ var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
     return function(req, res, next) {
-        console.log('getting user by id: ' + JSON.stringify(res.locals));
+        console.log('getting user by id');
         res.locals.user = {
             _id: 'koki',
             name: 'Fejes Daniel',
