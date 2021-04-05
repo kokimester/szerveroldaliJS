@@ -32,18 +32,18 @@
                 <%= user.name %>
               </td>
               <td>
-                
+
               </td>
               <td class="bg-white">
                 <%= user.phone %>
               </td>
               <td>
-                
+
               </td>
             </tr>
             <tr>
               <td>
-                <a class="btn btn-success" href=<%= '/profil/' + user._id + '/edit' %>> Adatok szerkesztése</a>>
+                <a class="btn btn-success" href=<%='/profil/' + user._id + '/edit' %>> Adatok szerkesztése</a>>
               </td>
             </tr>
           </table>
@@ -51,46 +51,7 @@
       </div>
     </div>
 
-    <br><br><br><br><br><br>
-
-    <div class="container">
-      <div class="row text-black-50">
-        <div class="col-3">
-          <table class="table table-borderless">
-            <tr>
-              <th>
-                <h2 class="text-white">Jelszó módosítás</h2>
-              </th>
-            </tr>
-
-            <td class="bg-light">
-              <form>
-                <label for="inputOldPassword1" class="form-label mt-1">Régi jelszó</label>
-                <input type="password" id="inputOldPassword" class="form-control mb-2" placeholder="Régi jelszó">
-
-
-                <label for="inputNewPassword1" class="form-label mt-1">Új jelszó</label>
-                <input type="password" id="inputNewPassword1" class="form-control" placeholder="Új jelszó">
-
-
-
-                <label for="inputNewPassword2" class="form-label mt-2">Új jelszó mégegyszer</label>
-                <input type="password" id="inputNewPassword2" class="form-control mb-2"
-                  placeholder="Új jelszó mégegyszer" aria-describedby="passwordHelp">
-                <div id="passwordHelp" class="form-text m-auto p-1">
-                  A jelszónak tartalmaznia kell 8-20 karaktert, kis- és nagybetűt valamint egy számot.
-                </div>
-
-
-
-                <button type="submit" class="btn btn-danger mt-2">Megváltoztat</button>
-              </form>
-            </td>
-
-          </table>
-        </div>
-      </div>
-    </div>
+    
 
 
     <%- include('footer') -%>
