@@ -9,8 +9,10 @@ module.exports = function (objectrepository) {
             szoveg:'Elado T-65 X-Wing minden tartozekaval',
             tipus: 'T-65 X-Wing',
             hirdetestipus: 'Elad',
-            price: '12.345,-'
+            price: '12.345,-',
+            felado:'Minta Bela'
         };
+        console.log(res.locals.hirdetes);
         next();
     }
 }

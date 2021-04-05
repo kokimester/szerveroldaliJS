@@ -11,6 +11,7 @@ module.exports = function (objectrepository) {
             szoveg:'Elado T-65 X-Wing minden tartozekaval',
             tipus: 'T-65 X-Wing',
             hirdetestipus: 'Elad',
+            price: '',
             felado:'Minta Bela'
         },
         {
@@ -18,6 +19,7 @@ module.exports = function (objectrepository) {
             szoveg:'Elado T-70 X-Wing minden tartozekaval',
             tipus: 'T-70 X-Wing',
             hirdetestipus: 'Keres',
+            price: '',
             felado:'Minta Bela'
         }];
         console.log(JSON.stringify(res.locals))
