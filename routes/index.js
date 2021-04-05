@@ -31,8 +31,9 @@ module.exports = function(app) {
 
     app.use('/hirdetes/new',
         authMW(objRepo),
+        getUserMW(objRepo),
         saveHirdetesMW(objRepo),
-        renderMW(objRepo,'hirdetes'));
+        renderMW(objRepo,'hirdeteseditnew'));
 
     app.get('/hirdetes/get/:hirdetesid',
         authMW(objRepo),
@@ -42,16 +43,17 @@ module.exports = function(app) {
 
     app.use('/hirdetes/edit/:hirdetesid',
         authMW(objRepo),
+        getUserMW(objRepo),
         getHirdetesMW(objRepo),
         saveHirdetesMW(objRepo),
-        renderMW(objRepo,'hirdetesedit'));
+        renderMW(objRepo,'hirdeteseditnew'));
 
     app.use('/hirdetes/del/:hirdetesid',
         authMW(objRepo),
         getHirdetesMW(objRepo),
         delHirdetesMW(objRepo),
         );
-
+    
     app.get('/profil/:userid',
         authMW(objRepo),
         getUserMW(objRepo),
@@ -63,7 +65,7 @@ module.exports = function(app) {
         getUserMW(objRepo),
         saveUserMW(objRepo),
         saveNewPwMW(objRepo),
-        renderMW(objRepo,'profil'));
+        renderMW(objRepo,'profiledit'));
 
     app.use('/login',
         getUserByEmailMW(objRepo),
