@@ -4,7 +4,7 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectrepository) {
     return function(req, res, next) {
         console.log('----------- getUserHirdetesekMW: -----------');
-        rres.locals.hirdetesek = [{
+        res.locals.hirdetesek = [{
             _id: '123',
             szoveg:'Elado T-65 X-Wing minden tartozekaval',
             tipus: 'T-65 X-Wing',
