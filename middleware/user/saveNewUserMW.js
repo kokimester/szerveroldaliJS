@@ -11,8 +11,8 @@ module.exports = function (objectrepository) {
             (typeof req.body.name === 'undefined') ||
             (typeof req.body.phoneNumber === 'undefined') ||
             (typeof req.body.inputEmail === 'undefined') ||
-            (typeof req.body.inputPassword2[0] === 'undefined') ||
-            (typeof req.body.inputPassword2[1] === 'undefined')
+            (typeof req.body.inputPassword1 === 'undefined') ||
+            (typeof req.body.inputPassword2 === 'undefined')
         )
         {
             console.log('undefined nev, telefon, email or password');
