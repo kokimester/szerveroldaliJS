@@ -5,14 +5,15 @@ var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
     return function(req, res, next) {
-        console.log('getting hirdetesek for main page');
+        console.log('-----------getHirdetesekMW:-----------')
         res.locals.hirdetesek = [{
             _id: '123',
             szoveg:'Elado T-65 X-Wing minden tartozekaval',
             tipus: 'T-65 X-Wing',
             hirdetestipus: 'Elad',
             price: '',
-            felado:'Minta Bela'
+            felado:'Minta Bela',
+            _feladoid: '323'
         },
         {
             _id: '345',
@@ -20,9 +21,10 @@ module.exports = function (objectrepository) {
             tipus: 'T-70 X-Wing',
             hirdetestipus: 'Keres',
             price: '',
-            felado:'Minta Bela'
+            felado:'Minta Bela',
+            _feladoid: '323'
         }];
-        console.log(JSON.stringify(res.locals))
+        console.log(res.locals)
         next();
     }
 }
