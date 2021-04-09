@@ -24,6 +24,9 @@
                      <th>
                          &nbsp;
                      </th>
+                     <th>
+                      &nbsp;
+                    </th>
 
                  </tr>
                  <% hirdetesek.forEach(function(egyHirdetes){ %>
@@ -45,6 +48,9 @@
                      </td>
                      <td>
                       <a class="btn btn-warning" href=<%= '/hirdetes/edit/' + egyHirdetes._id %>>Hirdetés szerkesztése</a>
+                     </td>
+                     <td>
+                      <a class="btn btn-danger" href=<%= '/hirdetes/del/' + egyHirdetes._id %> onclick="return confirm('Biztos, hogy törölni akarod a hirdetést?');">Hirdetés törlése</a>
                      </td>
                  </tr>
                  <% }); %>
