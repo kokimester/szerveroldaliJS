@@ -12,7 +12,10 @@ const getUserByEmailMW = require('../middleware/user/getUserByEmailMW');
 const getUserMW = require('../middleware/user/getUserMW');
 const saveUserMW = require('../middleware/user/saveUserMW');
 const sendNewPwMW = require('../middleware/user/sendNewPwMW');
-const saveNewPwMW = require('../middleware/user/saveNewPwMW');
+const saveNewPwMW = require('../middleware/user/saveChangedPwMW');
+const generateNewPwMW = require('../middleware/user/generateNewPwMW');
+const saveChangedPwMW = require('../middleware/user/saveChangedPwMW');
+const saveNewUserMW = require('../middleware/user/saveNewUserMW');
 
 
 
@@ -64,7 +67,7 @@ module.exports = function(app) {
         authMW(objRepo),
         getUserMW(objRepo),
         saveUserMW(objRepo),
-        saveNewPwMW(objRepo),
+        saveChangedPwMW(objRepo),
         renderMW(objRepo,'profiledit'));
 
     app.use('/login',
@@ -74,13 +77,14 @@ module.exports = function(app) {
 
     app.use('/register',
         createUserMW(objRepo),
-        saveUserMW(objRepo),
+        saveNewUserMW(objRepo),
         renderMW(objRepo,'regisztracio'));
 
     app.use('/newpassword',
         getUserByEmailMW(objRepo),
-        sendNewPwMW(objRepo),
+        generateNewPwMW(objRepo),
         saveNewPwMW(objRepo),
+        sendNewPwMW(objRepo),
         renderMW(objRepo,'elfelejtett'));
 
 };

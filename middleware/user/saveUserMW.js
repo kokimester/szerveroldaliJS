@@ -4,17 +4,17 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectrepository) {
     return function(req, res, next) {
 
+        console.log('-----------saveUserMW:-----------');
+
         if(
             (typeof req.body.nev === 'undefined') ||
             (typeof req.body.telefon === 'undefined')
         )
         {
-            console.log('undefined nev or telefon');
+            console.log('//////undefined nev or telefon/////////');
             return next();
         }
 
-
-        console.log('saving user data');
         
         res.redirect('/profil/' + res.locals.user._id);
         
