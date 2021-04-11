@@ -1,4 +1,4 @@
-// ellenorzi, hogy be van e lepve a felhasznalo
+// ellenorzi, a felhasznalo belepo adatait
 var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
