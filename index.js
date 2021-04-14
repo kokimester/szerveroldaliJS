@@ -12,6 +12,10 @@ app.use('/public',express.static('public'));
 
 require('./routes/index')(app);
 
+app.use((err,req,res,next) => {
+  res.end('Problem....');
+  console.log(err);
+})
 
 var server = app.listen(3000, function () {
     console.log('Listening on port: 3000');

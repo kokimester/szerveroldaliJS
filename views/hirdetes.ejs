@@ -30,7 +30,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href=<%= '/profil/' + user._id %>><%= hirdetes.felado %></a>
+                                        <a href=<%= '/profil/' + hirdetes._felado._id %>><%= hirdetes._felado.name %></a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -41,7 +41,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <%= user.phone %>
+                                        <%= hirdetes._felado.phone %>
                                     </td>
                                 </tr>
                                 <tr>
@@ -52,7 +52,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <%= hirdetes.price %>
+                                        <%= hirdetes.price %> (<%= hirdetes.hirdetestipus %>)
                                     </td>
                                 </tr>
                             </table>

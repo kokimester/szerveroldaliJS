@@ -17,10 +17,15 @@ const generateNewPwMW = require('../middleware/user/generateNewPwMW');
 const saveChangedPwMW = require('../middleware/user/saveChangedPwMW');
 const saveNewUserMW = require('../middleware/user/saveNewUserMW');
 
+const UserModel = require('../models/user');
+const HirdetesModel = require('../models/hirdetes');
 
 
 module.exports = function(app) {
-    const objRepo = {};
+    const objRepo = {
+        UserModel: UserModel,
+        HirdetesModel: HirdetesModel
+    };
 
     app.get('/',
         getHirdetesekMW(objRepo),
