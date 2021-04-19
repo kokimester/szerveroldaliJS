@@ -13,10 +13,10 @@
                 Típus
               </th>
               <th>
-                Elad/Keres
+                Feladó
               </th>
               <th>
-                Feladó
+                Ár
               </th>
               <th>
                 &nbsp;
@@ -32,11 +32,11 @@
                     <%= egyHirdetes.tipus %>
                   </td>
                   <td>
-                    <%= egyHirdetes.hirdetestipus %>
-                  </td>
-                  <td>
                       <%= egyHirdetes._felado.name %>
                   </td>
+                  <td>
+                    <%= egyHirdetes.ar %>
+                </td>
                   <td class="col-2">
                       <a class="btn btn-primary" href=<%= '/hirdetes/get/' + egyHirdetes._id %>>Ugrás a hirdetésre</a>
                   </td>

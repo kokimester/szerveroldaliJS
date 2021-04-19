@@ -59,9 +59,8 @@ module.exports = function(app) {
     app.use('/hirdetes/del/:hirdetesid',
         authMW(objRepo),
         getHirdetesMW(objRepo),
-        delHirdetesMW(objRepo),
-        );
-    
+        delHirdetesMW(objRepo));
+
     app.get('/profil/:userid',
         authMW(objRepo),
         getUserMW(objRepo),

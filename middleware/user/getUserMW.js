@@ -2,14 +2,20 @@
 var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
+
+    const UserModel = requireOption(objectrepository, 'UserModel');
+
     return function(req, res, next) {
         console.log('----------- getUserMW: -----------');
-        res.locals.user = {
-            _id: 'koki',
-            name: 'Fejes Daniel',
-            phone: '+36-123-5463'
-        };
-        console.log(res.locals);
-        next();
+        
+        UserModel.findOne({}).populate('_felado').exec((err,user) => {
+            if(err || !user )
+            {
+                return next(err);
+            }
+            res.locals.user = user;
+            console.log(user);
+            return next();
+        });
     }
 }

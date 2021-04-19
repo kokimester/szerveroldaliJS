@@ -8,12 +8,13 @@ module.exports = function (objectrepository) {
     return function(req, res, next) {
         console.log('-------------getting hirdetes from db------------');
 
-        HirdetesModel.findOne({_id:req.params.hirdetesid }).populate('_felado').exec((err,hirdetes) => {
-            if(err)
+        HirdetesModel.findOne({ _id : req.params.hirdetesid }).populate('_felado').exec((err,hirdetes) => {
+            if(err || !hirdetes)
             {
                 return next(err);
             }
             res.locals.hirdetes = hirdetes;
+            console.log('a kiadott hirdetes:')
             console.log(hirdetes);
             return next();
         });

@@ -4,8 +4,7 @@ const db = require('../config/db');
 const Hirdetes = db.model('Hirdetes',{
     szoveg: String,
     tipus: String,
-    hirdetestipus: String,
-    price: String,
+    ar: String,
     _felado: {
         type: Schema.Types.ObjectId,
         ref: 'User'

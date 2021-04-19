@@ -60,7 +60,7 @@
                                             <div class="form-group">
                                                 <td>
                                                     <input type="text" class="form-control" id="ar" name="ar" 
-                                                    value="<%= (typeof hirdetes === 'undefined') ? '' : hirdetes.price %>">
+                                                    value="<%= (typeof hirdetes === 'undefined') ? '' : hirdetes.ar %>">
                                                 </td>
                                             </div>
                                         </tr>
@@ -88,7 +88,7 @@
                                     <td>
                                     <div class="form-group">
                                         <label for="szoveg">A hirdetés részletes leírása</label>
-                                        <textarea class="form-control" id="szoveg" name="szoveg" rows="3"></textarea>
+                                        <textarea class="form-control" id="szoveg" name="szoveg" rows="3"><%=(typeof hirdetes === 'undefined') ? '' : hirdetes.szoveg %></textarea>
                                       </div>
                                     </td>
                                 </tr>
@@ -115,7 +115,7 @@
                         href=<%=(typeof hirdetes === 'undefined') ? '/hirdetes' :'/hirdetes/get/' + hirdetes._id %>
                                                 value="Hirdetés mentése"/>
                         <a class="btn btn-lg btn-danger" 
-                        href=<%=(typeof hirdetes === 'undefined') ? '/hirdetes' :'/hirdetes/get/' + hirdetes._id %> > Mégse</a>
+                        href='/hirdetes' > Mégse</a>
                     </div>
                     </div>
         </form>
