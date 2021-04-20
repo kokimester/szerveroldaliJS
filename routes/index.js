@@ -68,7 +68,6 @@ module.exports = function(app) {
     );
 
     app.get('/profil/:userid',
-        authMW(objRepo),
         getUserByIDMW(objRepo),
         getUserHirdetesekIfNotSelfMW(objRepo),
         renderMW(objRepo,'masikprofil'));

@@ -1,4 +1,4 @@
-// lementi az eppen szerkesztett/letrehozott felhasznalot
+// lementi az eppen szerkesztett felhasznalot
 var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
@@ -9,16 +9,35 @@ module.exports = function (objectrepository) {
         console.log('-----------saveUserMW:-----------');
 
         if(
-            (typeof req.body.nev === 'undefined') ||
-            (typeof req.body.telefon === 'undefined')
+            (typeof req.body.name === 'undefined') ||
+            (typeof req.body.phone === 'undefined')
         )
         {
             console.log('//////undefined nev or telefon/////////');
             return next();
         }
+        if(
+            (req.body.name === '') ||
+            (req.body.phone === '')
+        )
+        {
+            console.log('//////ures sorok/////////');
+            return next();
+        }
 
-        
-        res.redirect('/profil/' + res.locals.user._id);
+        res.locals.user.name = req.body.name;
+        res.locals.user.phone = req.body.phone;
+
+        res.locals.user.save((err) => 
+        {
+            if(err)
+            {
+                return next(err);
+            }
+            console.log('saving user changes');
+            res.redirect('/profil');
+        })
+
         
     }
 }

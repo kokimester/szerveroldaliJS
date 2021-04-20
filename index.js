@@ -19,6 +19,10 @@ app.use(session({
   console.log(req.session);
 });*/
 
+app.get('*', function(req, res, next) {
+  res.locals.session = req.session || null;
+  next();
+});
 
 require('./routes/index')(app);
 
