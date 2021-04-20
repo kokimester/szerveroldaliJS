@@ -12,10 +12,9 @@ const getUserByEmailMW = require('../middleware/user/getUserByEmailMW');
 const getUserMW = require('../middleware/user/getUserMW');
 const saveUserMW = require('../middleware/user/saveUserMW');
 const sendNewPwMW = require('../middleware/user/sendNewPwMW');
-const saveNewPwMW = require('../middleware/user/saveChangedPwMW');
+const saveNewPwMW = require('../middleware/user/saveNewPwMW');
 const generateNewPwMW = require('../middleware/user/generateNewPwMW');
 const saveChangedPwMW = require('../middleware/user/saveChangedPwMW');
-const saveNewUserMW = require('../middleware/user/saveNewUserMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 const getUserByIDMW = require('../middleware/user/getUserByIDMW');
 

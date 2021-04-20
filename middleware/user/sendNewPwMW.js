@@ -7,13 +7,14 @@ module.exports = function (objectrepository) {
     return function(req, res, next) {
 
         console.log('-----------sendNewPwMW:-----------');
-        if(typeof req.body.inputEmail === 'undefined')
+        
+        if(typeof res.locals.user === 'undefined')
         {
-            console.log('undefined email address');
             return next();
         }
         console.log('Your new password is: ')
         console.log(res.locals.newPassword);
-        res.redirect('/');
+
+        res.redirect('/login');
     }
 }

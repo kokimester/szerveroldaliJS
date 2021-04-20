@@ -7,7 +7,11 @@ module.exports = function (objectrepository) {
         
         console.log('-----------generateNewPwMW:-----------');
 
-        res.locals.newPassword = 'SomeRandomString';
+        if(typeof res.locals.user === 'undefined')
+        {
+            return next();
+        }
+        res.locals.newPassword = Math.random().toString(36).substr(2, 8);
 
         next();
     }
