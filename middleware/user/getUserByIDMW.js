@@ -8,7 +8,7 @@ module.exports = function (objectrepository) {
     return function(req, res, next) {
         console.log('----------- getUserMW: -----------');
         
-        UserModel.findOne({_id : req.session.userID}).exec((err,user) => {
+        UserModel.findOne({_id : req.params.userid}).exec((err,user) => {
             if(err || !user )
             {
                 console.log('user not in db');

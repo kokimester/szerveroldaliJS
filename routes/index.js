@@ -16,6 +16,8 @@ const saveNewPwMW = require('../middleware/user/saveChangedPwMW');
 const generateNewPwMW = require('../middleware/user/generateNewPwMW');
 const saveChangedPwMW = require('../middleware/user/saveChangedPwMW');
 const saveNewUserMW = require('../middleware/user/saveNewUserMW');
+const logoutMW = require('../middleware/auth/logoutMW');
+const getUserByIDMW = require('../middleware/user/getUserByIDMW');
 
 const UserModel = require('../models/user');
 const HirdetesModel = require('../models/hirdetes');
@@ -44,8 +46,6 @@ module.exports = function(app) {
         renderMW(objRepo,'hirdeteseditnew'));
 
     app.get('/hirdetes/get/:hirdetesid',
-        authMW(objRepo),
-        getUserMW(objRepo),
         getHirdetesMW(objRepo),
         renderMW(objRepo,'hirdetes'));
 
@@ -61,11 +61,17 @@ module.exports = function(app) {
         getHirdetesMW(objRepo),
         delHirdetesMW(objRepo));
 
-    app.get('/profil/:userid',
+    app.get('/profil',
         authMW(objRepo),
         getUserMW(objRepo),
+        renderMW(objRepo,'profil')
+    );
+
+    app.get('/profil/:userid',
+        authMW(objRepo),
+        getUserByIDMW(objRepo),
         getUserHirdetesekIfNotSelfMW(objRepo),
-        renderMW(objRepo,'profil'));
+        renderMW(objRepo,'masikprofil'));
 
     app.use('/profil/:userid/edit',
         authMW(objRepo),
@@ -79,9 +85,14 @@ module.exports = function(app) {
         checkUserLoginMW(objRepo),
         renderMW(objRepo,'login'));
 
+    app.use('/logout',
+        authMW(objRepo),
+        logoutMW(objRepo)
+        );
+
     app.use('/register',
+        getUserByEmailMW(objRepo),
         createUserMW(objRepo),
-        saveNewUserMW(objRepo),
         renderMW(objRepo,'regisztracio'));
 
     app.use('/newpassword',

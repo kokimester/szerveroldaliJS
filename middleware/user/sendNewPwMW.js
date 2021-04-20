@@ -2,6 +2,8 @@
 var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
+
+    const UserModel = requireOption(objectrepository, 'UserModel');
     return function(req, res, next) {
 
         console.log('-----------sendNewPwMW:-----------');
