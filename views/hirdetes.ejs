@@ -41,7 +41,12 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <%= hirdetes._felado.phone %>
+                                        <% if((typeof session ==='undefined') ||(typeof session.belepve === 'undefined') || (session.belepve !== true)){ %>
+                                            <a> XX-XXX-XXXX </a> <p>(Ehhez az információhoz be kell jelentkezned)</p>
+                                            <% } else{ %>  
+                                                <%= hirdetes._felado.phone %>
+                                            <% } %>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
@@ -52,7 +57,12 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <%= hirdetes.ar %>
+                                        <% if((typeof session ==='undefined') ||(typeof session.belepve === 'undefined') || (session.belepve !== true)){ %>
+                                            <a> XX.XXX </a> <p>(Ehhez az információhoz be kell jelentkezned)</p>
+                                            <% } else{ %>  
+                                                <%= hirdetes.ar %>
+                                            <% } %>
+                                        
                                     </td>
                                 </tr>
                             </table>

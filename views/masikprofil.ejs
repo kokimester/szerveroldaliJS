@@ -36,7 +36,11 @@
               
             </td>
             <td class="bg-white">
-              <%= user.phone %>
+              <% if((typeof session ==='undefined') ||(typeof session.belepve === 'undefined') || (session.belepve !== true)){ %>
+                <a> XX-XXX-XXXX </a>
+                <% } else{ %>  
+                  <%= user.phone %>
+                <% } %>
             </td>
             <td>
               
