@@ -7,7 +7,7 @@
                 <table class="table bg-light table-borderless">
                     <tr>
                         <th class="col-3">
-                            <img class="m-auto" src="/public/img/t65xwing.jpg" width="300px" />
+                            <img class="m-auto" src=<%= '/' + hirdetes.kepek[0] %> width="300px" />
                         </th>
                         <th>
                             <table>
@@ -94,14 +94,9 @@
                 </div>
             </div>
             <div class="col-6">
-                <img class="m-auto" src="https://i.pinimg.com/originals/81/f5/95/81f5957403eb5e88c4fe48ddf994768e.png"
-                    width="300px" />
-                <img class="m-auto" src="https://i.pinimg.com/originals/c9/e6/67/c9e6671c959c71b4067222fe9643974c.png"
-                    width="300px" />
-
-                <img class="m-auto"
-                    src="https://preview.redd.it/appqcaqg67l21.jpg?auto=webp&s=b1d544a3d1f89baf1f7b3184176441ade8185fe7"
-                    width="300px" />
+                <% hirdetes.kepek.slice(1).forEach(function(egyKep){ %>
+                <img class="m-auto" src=<%= '/'+egyKep %> width="300px" />
+                <% }); %>
             </div>
 
         </div>

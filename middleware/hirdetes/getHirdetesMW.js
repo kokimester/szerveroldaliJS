@@ -11,6 +11,8 @@ module.exports = function (objectrepository) {
         HirdetesModel.findOne({ _id : req.params.hirdetesid }).populate('_felado').exec((err,hirdetes) => {
             if(err || !hirdetes)
             {
+                console.log(req.params);
+                console.log('hirdetes not found');
                 return next(err);
             }
             res.locals.hirdetes = hirdetes;

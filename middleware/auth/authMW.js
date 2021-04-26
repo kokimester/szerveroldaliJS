@@ -11,7 +11,7 @@ module.exports = function (objectrepository) {
         }
 
 
-        console.log('authenticating user');
+        console.log('----------authenticated user----------');
         next();
     }
 }

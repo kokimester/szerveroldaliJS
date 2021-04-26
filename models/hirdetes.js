@@ -5,6 +5,9 @@ const Hirdetes = db.model('Hirdetes',{
     szoveg: String,
     tipus: String,
     ar: String,
+    kepek: [{
+        type: String
+    }],
     _felado: {
         type: Schema.Types.ObjectId,
         ref: 'User'

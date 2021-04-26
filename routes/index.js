@@ -18,6 +18,9 @@ const saveChangedPwMW = require('../middleware/user/saveChangedPwMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 const getUserByIDMW = require('../middleware/user/getUserByIDMW');
 
+const multer  = require('multer');
+const upload = multer({ dest: 'uploads/' });
+
 const UserModel = require('../models/user');
 const HirdetesModel = require('../models/hirdetes');
 
@@ -41,6 +44,7 @@ module.exports = function(app) {
     app.use('/hirdetes/new',
         authMW(objRepo),
         getUserMW(objRepo),
+        upload.array('pictures'),
         saveHirdetesMW(objRepo),
         renderMW(objRepo,'hirdeteseditnew'));
 
@@ -52,6 +56,7 @@ module.exports = function(app) {
         authMW(objRepo),
         getUserMW(objRepo),
         getHirdetesMW(objRepo),
+        upload.array('pictures'),
         saveHirdetesMW(objRepo),
         renderMW(objRepo,'hirdeteseditnew'));
 

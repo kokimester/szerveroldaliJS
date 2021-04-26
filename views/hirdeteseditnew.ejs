@@ -2,7 +2,7 @@
     <%- include('menu') -%>
 
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data"> <!--   -->
             
             <div class="container">
                 <div class="row text-black-50">
@@ -10,8 +10,11 @@
                         <table class="table bg-light table-borderless">
                             <tr>
                                 <th class="col-3">
-                                    <img class="m-auto" src="t65xwing.jpg" width="300px" />
+                                    <!-- <img class="m-auto" src="t65xwing.jpg" width="300px" /> -->
+                                    <input type="file" name="pictures" multiple/>
                                 </th>
+
+
                                 <th>
                                     <table>
                                         <tr>

@@ -21,7 +21,7 @@
                 aria-current="page" href="/hirdetes">Hirdetéseim</a>
           </li>
         </ul>
-        <% if((typeof session ==='undefined') ||(typeof session.belepve === 'undefined') || (session.belepve !== true)){ %>
+        <% if((typeof session ==='undefined') || (typeof session.belepve === 'undefined') || (session.belepve !== true)){ %>
           <form><a class="btn btn-success" href="/login" role="button">Bejelentkezés</a></form>
           <% } else{ %>  
             <form><a class="btn btn-danger" href="/logout" role="button" onclick="return confirm('Biztos, hogy ki akarsz jelentkezni?');">Kijelentkezés</a></form>
