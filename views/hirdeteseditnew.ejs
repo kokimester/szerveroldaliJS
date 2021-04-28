@@ -10,7 +10,7 @@
                         <table class="table bg-light table-borderless">
                             <tr>
                                 <th class="col-3">
-                                    <!-- <img class="m-auto" src="t65xwing.jpg" width="300px" /> -->
+                                    <img class="m-auto" src=<%=(typeof hirdetes === 'undefined') || ( hirdetes.kepek.length === 0) ? '/public/img/no-image-found.png' : '/' + hirdetes.kepek[0] %> width="300px" />
                                     <input type="file" name="pictures" multiple/>
                                 </th>
 
@@ -64,6 +64,7 @@
                                                 <td>
                                                     <input type="text" class="form-control" id="ar" name="ar" 
                                                     value="<%= (typeof hirdetes === 'undefined') ? '' : hirdetes.ar %>">
+                                                    <h5 class="text-black"><%= (typeof(error) === 'undefined') ? '' : error %> </h5>
                                                 </td>
                                             </div>
                                         </tr>
@@ -99,16 +100,9 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <img class="m-auto"
-                            src="https://i.pinimg.com/originals/81/f5/95/81f5957403eb5e88c4fe48ddf994768e.png"
-                            width="300px" />
-                        <img class="m-auto"
-                            src="https://i.pinimg.com/originals/c9/e6/67/c9e6671c959c71b4067222fe9643974c.png"
-                            width="300px" />
-
-                        <img class="m-auto"
-                            src="https://preview.redd.it/appqcaqg67l21.jpg?auto=webp&s=b1d544a3d1f89baf1f7b3184176441ade8185fe7"
-                            width="300px" />
+                        <% (typeof hirdetes === 'undefined') ? '' :hirdetes.kepek.slice(1).forEach(function(egyKep){ %>
+                            <img class="m-auto" src=<%= '/'+egyKep %> width="300px" />
+                            <% }); %>
                     </div>
 
                 </div>
@@ -117,8 +111,14 @@
                         <input type="submit" class="btn btn-lg btn-success" 
                         href=<%=(typeof hirdetes === 'undefined') ? '/hirdetes' :'/hirdetes/get/' + hirdetes._id %>
                                                 value="Hirdetés mentése"/>
+
                         <a class="btn btn-lg btn-danger" 
                         href='/hirdetes' > Mégse</a>
+
+                        <a <%=(typeof hirdetes === 'undefined') ? 'hidden' : ''%> class="btn btn-lg btn-danger" 
+                        href=<%=(typeof hirdetes === 'undefined') ? '/hirdetes' :'/hirdetes/edit/' + hirdetes._id + '/delPic' %> 
+                        role="button">Utolsó kép törlése</a>
+
                     </div>
                     </div>
         </form>

@@ -19,7 +19,7 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.locals.hirdetesek = hirdetesek;
-            console.log(hirdetesek);
+            //console.log(hirdetesek);
             return next();
         });
         

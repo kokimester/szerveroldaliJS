@@ -12,7 +12,9 @@ app.use('/uploads',express.static('uploads'));
 app.use('/public',express.static('public'));
 //app.use(express.static('static'));
 
-app.use(session({
+app.use(session({  
+  resave:false,
+  saveUninitialized: true,
   secret: 'ersfertbdrtyhhj',
 }));
 
@@ -20,6 +22,7 @@ app.use(session({
   console.log(Date.now());
   console.log(req.session);
 });*/
+
 
 app.use('*', function(req, res, next) {
   res.locals.session = req.session || null;

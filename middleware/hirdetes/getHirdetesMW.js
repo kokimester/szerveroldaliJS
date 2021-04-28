@@ -16,8 +16,8 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.locals.hirdetes = hirdetes;
-            console.log('a kiadott hirdetes:')
-            console.log(hirdetes);
+            //console.log('a kiadott hirdetes:')
+            //console.log(hirdetes);
             return next();
         });
     }

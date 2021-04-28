@@ -3,7 +3,7 @@
 
     <div class="container">
       <div class="row text-black-50">
-        <div class="col-12">
+        <div class="col-9">
           <table class="table table-striped table-bordered bg-light">
             <tr>
               <th>
@@ -26,7 +26,7 @@
             <% hirdetesek.forEach(function(egyHirdetes){ %>
               <tr>
                   <td>
-                     <%= egyHirdetes.szoveg %>
+                     <%= egyHirdetes.szoveg.substring(0,50) + ((egyHirdetes.szoveg.length > 50) ? '...' : '')%>
                   </td>
                   <td>
                     <%= egyHirdetes.tipus %>
@@ -37,12 +37,19 @@
                   <td>
                     <%= egyHirdetes.ar %>
                 </td>
-                  <td class="col-2">
+                  <td>
                       <a class="btn btn-primary" href=<%= '/hirdetes/get/' + egyHirdetes._id %>>Ugrás a hirdetésre</a>
                   </td>
               </tr>
               <% }); %>
           </table>
+        </div>
+        <div class="col-3">
+          <h1 class="text-white">Kereső</h1>
+          <form method="POST">
+            <input type="text" class="form-control" id="searchBy" name="searchBy">
+            <input type="submit" class="btn-lg btn-primary mb-1 mt-2" value="Keres"/>
+          </form>
         </div>
       </div>
     </div>

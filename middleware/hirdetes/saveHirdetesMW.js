@@ -6,7 +6,17 @@ module.exports = function (objectrepository) {
     const HirdetesModel = requireOption(objectrepository, 'HirdetesModel');
 
     return function(req, res, next) {
-        console.log('----------saving hirdetes---------')
+        console.log('----------Saving hirdetes---------')
+
+
+        if( typeof(res.locals.impostor) !== 'undefined' && res.locals.impostor === true)
+        {
+            console.log(res.locals);
+            console.log('dont edit other\'s posts');
+            res.redirect('/hirdetes');
+            return next();
+        }
+
         if(
             (typeof req.body.tipus === 'undefined') ||
             (typeof req.body.ar === 'undefined') ||
@@ -30,6 +40,12 @@ module.exports = function (objectrepository) {
             res.locals.hirdetes.kepek.push(egyFile.path);
         });
         
+        if(req.body.ar[0] === '-')
+        {
+            res.locals.error = "Ne adj meg negatív árat!";
+            return next();
+        }
+
         res.locals.hirdetes.ar = req.body.ar;
         res.locals.hirdetes.tipus = req.body.tipus;
         res.locals.hirdetes.szoveg = req.body.szoveg;

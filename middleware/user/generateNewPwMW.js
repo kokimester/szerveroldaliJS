@@ -13,6 +13,6 @@ module.exports = function (objectrepository) {
         }
         res.locals.newPassword = Math.random().toString(36).substr(2, 8);
 
-        next();
+        return next();
     }
 }

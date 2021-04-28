@@ -10,6 +10,23 @@ module.exports = function (objectrepository) {
     return function(req, res, next) {
         console.log('-----------getHirdetesekMW:-----------')
        
+        if(typeof(req.body.searchBy) !== 'undefined' && req.body.searchBy !== null && req.body.searchBy !== '')
+        {
+            
+            const searchBy = req.body.searchBy;
+            HirdetesModel.find({ tipus : {$regex : new RegExp(searchBy, 'i') } }).populate('_felado').exec((err,hirdetesek) => {
+                if(err)
+                {
+                    return next(err);
+                } 
+                console.log('trying to find hirdetesek which contains: '+searchBy);
+                console.log(hirdetesek);
+                res.locals.hirdetesek = hirdetesek;
+                return next();
+            });
+        }
+
+
         HirdetesModel.find({}).populate('_felado').exec((err,hirdetesek) => {
             if(err)
             {

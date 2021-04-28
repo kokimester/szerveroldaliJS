@@ -25,13 +25,13 @@ module.exports = function (objectrepository) {
             {
                 return next(err);
             }
-            res.locals.user = user;
             if(!user)
             {
                 console.log('nincs ilyen email az adatbazisban');
-                console.log('user:' + res.locals.user);
+                res.locals.error = "Nincs ilyen felhasználó!";
                 return next();
             }
+            res.locals.user = user;
             console.log('a megtalalt user:')
             console.log(user.name);
             return next();

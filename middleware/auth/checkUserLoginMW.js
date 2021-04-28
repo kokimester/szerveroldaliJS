@@ -4,13 +4,8 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectrepository) {
     return function(req, res, next) {
 
-        if(typeof res.locals.user === 'undefined')
-        {
-            console.log('nincs ilyen user');
-            return next();
-        }
-
-        if (typeof req.body.password === 'undefined')
+        if((typeof res.locals.user === 'undefined') ||
+            (typeof req.body.password === 'undefined'))
         {
             return next();
         }
@@ -25,7 +20,7 @@ module.exports = function (objectrepository) {
             });
         }
         console.log('hibas jelszo');
-        res.locals.error = "Hibas jelszo!";
+        res.locals.error = "Hibás jelszó!";
         return next();
     }
 }

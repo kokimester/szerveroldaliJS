@@ -8,15 +8,11 @@
                 <form method="POST">
                     <div class="text-center">
                     <img class="mb-1 mt-2" src="/public/img/xwing_icon.png" alt="" width="230" height="70">
+                    <h1><%= (typeof(error) === 'undefined') ? '' : error %> </h1>
                 </div>
                     <div class="mb-3">
                         <label for="name" class="form-label mt-2">Név</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Kis József">
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label mt-2">Email cím</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="jozsika@gmail.com">
 
                     </div>
                     <div class="mb-3">
@@ -28,6 +24,11 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <label for="email" class="form-label mt-2">Email cím</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="jozsika@gmail.com">
+
+                    </div>
+                    <div class="mb-3">
                         <label for="inputPassword1" class="form-label">Jelszó</label>
                         <input type="password" class="form-control" id="inputPassword1" name="inputPassword1">
                     </div>
@@ -35,7 +36,7 @@
                         <label for="inputPassword2" class="form-label">Jelszó mégegyszer</label>
                         <input type="password" class="form-control" id="inputPassword2" name="inputPassword2" aria-describedby="passwordHelp">
                         <div id="passwordHelp" class="form-text m-auto p-1">
-                            A jelszónak tartalmaznia kell 8-20 karaktert, kis- és nagybetűt valamint egy számot.
+                            A jelszónak tartalmaznia kell legalább 8 karaktert, kis- és nagybetűt valamint egy számot.
                         </div>
                     </div>
                     <div class="text-center">

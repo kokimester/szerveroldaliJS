@@ -21,10 +21,15 @@ module.exports = function (objectrepository) {
             (req.body.phone === '')
         )
         {
-            console.log('//////ures sorok/////////');
+            res.locals.error = "Nem adtál meg minden adatot."
             return next();
         }
 
+        if(!(/^\+[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{4}$/.test(req.body.phone)))
+        {
+            res.locals.error = "Nem megfelelő telefonszám formátum."
+            return next();
+        }
         res.locals.user.name = req.body.name;
         res.locals.user.phone = req.body.phone;
 

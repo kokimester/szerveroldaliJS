@@ -24,20 +24,40 @@ module.exports = function (objectrepository) {
             (req.body.inputNewPassword2 === '')
         )
         {
-            console.log('hulyegyerek toltsd ki a mezoket')
+            res.locals.error = "Ne hagyj üresen mezőket.";
             return next();
         }
         if(res.locals.user.password !== req.body.inputOldPassword)
         {
-            console.log('helytelen jelszo');
+            res.locals.error = "Helytelen régi jelszó!";
+            return next();
+        }
+        const password = req.body.inputNewPassword1;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumbers = /\d/.test(password);
+        if(password.length < 8)
+        {
+            res.locals.error = "A megadott jelszó túl rövid.";
+            return next();
+        }
+        if(password === req.body.name)
+        {
+            res.locals.error = "A felhasználó neved nem lehet a jelszavad is.";
+            return next();
+        }
+        if (hasUpperCase + hasLowerCase + hasNumbers < 3)
+        {
+            res.locals.error = "A jelszónak tartalmaznia kell kis- és nagybetűt valamint egy számot.";
             return next();
         }
         if(req.body.inputNewPassword1 !== req.body.inputNewPassword2)
         {
-            console.log('nem ugyanazt adtad meg ketszer');
+            res.locals.error = "A megadott jelszavak nem egyeznek."
             return next();
         }
-        res.locals.user.password = req.body.inputNewPassword1;
+      
+        res.locals.user.password = password;
         res.locals.user.save((err) => {
             if(err)
             {

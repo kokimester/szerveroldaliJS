@@ -26,19 +26,47 @@ module.exports = function (objectrepository) {
             (req.body.inputPassword2 === '')
         )
         {
-            console.log('ures mezok');
+            res.locals.error = "Tölts ki minden mezőt!";
+            return next();
+        }
+        const password = req.body.inputPassword1;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumbers = /\d/.test(password);
+        if(password.length < 8)
+        {
+            res.locals.error = "A megadott jelszó túl rövid.";
+            return next();
+        }
+        if(password === req.body.name)
+        {
+            res.locals.error = "A felhasználó neved nem lehet a jelszavad is.";
+            return next();
+        }
+        if (hasUpperCase + hasLowerCase + hasNumbers < 3)
+        {
+            res.locals.error = "A jelszónak tartalmaznia kell kis- és nagybetűt valamint egy számot.";
             return next();
         }
         if(req.body.inputPassword1 !== req.body.inputPassword2)
         {
-            console.log('nem egyezo jelszo');
+            res.locals.error = "A megadott jelszavak nem egyeznek."
             return next();
         }
         if(typeof res.locals.user !== 'undefined')
         {
-            console.log('a user mar letezik');
+            res.locals.error = "Ezzel az email címmel már regisztráltak."
             return next();
         }
+        if(!(/^\+[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{4}$/.test(req.body.phone)))
+        {
+            res.locals.error = "Nem megfelelő telefonszám formátum."
+            return next();
+        }
+        
+
+
+
         res.locals.user = new UserModel();
 
         res.locals.user.name = req.body.name;

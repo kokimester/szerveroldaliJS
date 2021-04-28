@@ -17,9 +17,12 @@ const generateNewPwMW = require('../middleware/user/generateNewPwMW');
 const saveChangedPwMW = require('../middleware/user/saveChangedPwMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 const getUserByIDMW = require('../middleware/user/getUserByIDMW');
+const delPicFromHirdetesMW = require('../middleware/hirdetes/delPicFromHirdetesMW');
+const uploadPicturesMW = require('../middleware/hirdetes/uploadPicturesMW');
+const checkUserPrivilegeMW = require('../middleware/user/checkUserPrivilegeMW');
 
-const multer  = require('multer');
-const upload = multer({ dest: 'uploads/' });
+//const multer  = require('multer');
+//const upload = multer({ dest: 'uploads/' }).array('pictures',5);
 
 const UserModel = require('../models/user');
 const HirdetesModel = require('../models/hirdetes');
@@ -31,7 +34,7 @@ module.exports = function(app) {
         HirdetesModel: HirdetesModel
     };
 
-    app.get('/',
+    app.use('/',
         getHirdetesekMW(objRepo),
         renderMW(objRepo,'index'));
 
@@ -44,7 +47,7 @@ module.exports = function(app) {
     app.use('/hirdetes/new',
         authMW(objRepo),
         getUserMW(objRepo),
-        upload.array('pictures'),
+        uploadPicturesMW(objRepo),
         saveHirdetesMW(objRepo),
         renderMW(objRepo,'hirdeteseditnew'));
 
@@ -52,17 +55,28 @@ module.exports = function(app) {
         getHirdetesMW(objRepo),
         renderMW(objRepo,'hirdetes'));
 
+    app.use('/hirdetes/edit/:hirdetesid/delPic',
+        authMW(objRepo),
+        getUserMW(objRepo),
+        getHirdetesMW(objRepo),
+        checkUserPrivilegeMW(objRepo),
+        delPicFromHirdetesMW(objRepo)
+    );
+
     app.use('/hirdetes/edit/:hirdetesid',
         authMW(objRepo),
         getUserMW(objRepo),
         getHirdetesMW(objRepo),
-        upload.array('pictures'),
+        checkUserPrivilegeMW(objRepo),
+        uploadPicturesMW(objRepo),
         saveHirdetesMW(objRepo),
         renderMW(objRepo,'hirdeteseditnew'));
 
     app.use('/hirdetes/del/:hirdetesid',
         authMW(objRepo),
+        getUserMW(objRepo),
         getHirdetesMW(objRepo),
+        checkUserPrivilegeMW(objRepo),
         delHirdetesMW(objRepo));
 
     app.get('/profil',

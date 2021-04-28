@@ -7,7 +7,7 @@
                 <table class="table bg-light table-borderless">
                     <tr>
                         <th class="col-3">
-                            <img class="m-auto" src=<%= '/' + hirdetes.kepek[0] %> width="300px" />
+                            <img class="m-auto" src=<%=(typeof hirdetes === 'undefined') || ( hirdetes.kepek.length === 0) ? '/public/img/no-image-found.png' : '/' + hirdetes.kepek[0] %> width="300px" />
                         </th>
                         <th>
                             <table>
