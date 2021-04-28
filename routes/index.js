@@ -34,10 +34,6 @@ module.exports = function(app) {
         HirdetesModel: HirdetesModel
     };
 
-    app.use('/',
-        getHirdetesekMW(objRepo),
-        renderMW(objRepo,'index'));
-
     app.get('/hirdetes',
         authMW(objRepo),
         getUserMW(objRepo),
@@ -119,4 +115,7 @@ module.exports = function(app) {
         sendNewPwMW(objRepo),
         renderMW(objRepo,'elfelejtett'));
 
+    app.use('/',
+        getHirdetesekMW(objRepo),
+        renderMW(objRepo,'index'));
 };

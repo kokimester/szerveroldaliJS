@@ -32,7 +32,7 @@
                  <% hirdetesek.forEach(function(egyHirdetes){ %>
                  <tr>
                      <td>
-                        <%= egyHirdetes.szoveg %>
+                      <%= egyHirdetes.szoveg.substring(0,50) + ((egyHirdetes.szoveg.length > 50) ? '...' : '')%>
                      </td>
                      <td>
                        <%= egyHirdetes.tipus %>

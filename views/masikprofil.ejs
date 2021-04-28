@@ -63,7 +63,7 @@
                      </th>
                  </tr>
                  <tr class="bg-light">
-                     <th>
+                     <th class="col-7">
                          Hirdetés
                      </th>
                      <th>
@@ -80,7 +80,7 @@
                  <% hirdetesek.forEach(function(egyHirdetes){ %>
                   <tr class="bg-light">
                       <td>
-                         <%= egyHirdetes.szoveg %>
+                        <%= egyHirdetes.szoveg.substring(0,200) + ((egyHirdetes.szoveg.length > 200) ? '...' : '')%>
                       </td>
                       <td>
                         <%= egyHirdetes.tipus %>

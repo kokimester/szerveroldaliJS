@@ -13,8 +13,8 @@ app.use('/public',express.static('public'));
 //app.use(express.static('static'));
 
 app.use(session({  
-  resave:false,
-  saveUninitialized: true,
+  //resave:false,
+  //saveUninitialized: true,
   secret: 'ersfertbdrtyhhj',
 }));
 
