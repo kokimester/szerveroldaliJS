@@ -1,5 +1,6 @@
 // general egy random jelszot a felhasznalonak amivel belephet
 var requireOption = require('../common').requireOption;
+const crypto = require('crypto');
 
 module.exports = function (objectrepository) {
     return function(req, res, next) {
@@ -11,7 +12,19 @@ module.exports = function (objectrepository) {
         {
             return next();
         }
-        res.locals.newPassword = Math.random().toString(36).substr(2, 8);
+
+        const generatePassword = (
+            length = 20,
+            wishlist = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@-#$'
+          ) =>
+            Array.from(crypto.randomFillSync(new Uint32Array(length)))
+              .map((x) => wishlist[x % wishlist.length])
+              .join('')
+          
+
+
+
+        res.locals.newPassword = generatePassword();
 
         return next();
     }
