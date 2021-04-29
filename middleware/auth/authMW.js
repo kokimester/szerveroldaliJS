@@ -6,12 +6,8 @@ module.exports = function (objectrepository) {
 
         if(typeof req.session.belepve === 'undefined' || req.session.belepve !== true)
         {
-            console.log('user is not logged in');
             return res.redirect('/');
         }
-
-
-        console.log('----------authenticated user----------');
         next();
     }
 }

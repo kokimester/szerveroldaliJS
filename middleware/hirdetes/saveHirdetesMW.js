@@ -6,13 +6,10 @@ module.exports = function (objectrepository) {
     const HirdetesModel = requireOption(objectrepository, 'HirdetesModel');
 
     return function(req, res, next) {
-        console.log('----------Saving hirdetes---------')
 
 
         if( typeof(res.locals.impostor) !== 'undefined' && res.locals.impostor === true)
         {
-            console.log(res.locals);
-            console.log('dont edit other\'s posts');
             res.redirect('/hirdetes');
             return next();
         }
@@ -25,16 +22,12 @@ module.exports = function (objectrepository) {
             (typeof req.files === 'undefined')
         )
         {
-            console.log('undefined something');
             return next();
         }
         if (typeof res.locals.hirdetes === 'undefined')
         {
             res.locals.hirdetes = new HirdetesModel();
         }
-
-        console.log('a feltoltott fileok:')
-        console.log(req.files);
 
         req.files.forEach(function(egyFile){
             res.locals.hirdetes.kepek.push(egyFile.path);
@@ -56,9 +49,6 @@ module.exports = function (objectrepository) {
             {
                 return next(err);
             }
-
-            console.log('saving hirdetes changes');
-            console.log(res.locals.hirdetes);
             res.redirect('/hirdetes/get/' + res.locals.hirdetes._id);
         })
 

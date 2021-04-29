@@ -6,8 +6,6 @@ module.exports = function (objectrepository) {
     const HirdetesModel = requireOption(objectrepository, 'HirdetesModel');
 
     return function(req, res, next) {
-        console.log('----------- getUserHirdetesekMW: -----------');
-
         if(!res.locals.user)
         {
             return next('undefined user');
@@ -19,7 +17,6 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.locals.hirdetesek = hirdetesek;
-            //console.log(hirdetesek);
             return next();
         });
         

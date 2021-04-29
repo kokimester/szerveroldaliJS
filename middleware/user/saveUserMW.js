@@ -5,15 +5,11 @@ module.exports = function (objectrepository) {
 
     const UserModel = requireOption(objectrepository, 'UserModel');
     return function(req, res, next) {
-
-        console.log('-----------saveUserMW:-----------');
-
         if(
             (typeof req.body.name === 'undefined') ||
             (typeof req.body.phone === 'undefined')
         )
         {
-            console.log('//////undefined nev or telefon/////////');
             return next();
         }
         if(
@@ -39,7 +35,6 @@ module.exports = function (objectrepository) {
             {
                 return next(err);
             }
-            console.log('saving user changes');
             res.redirect('/profil');
         })
 

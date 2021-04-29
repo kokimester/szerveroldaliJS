@@ -94,6 +94,7 @@
                 </div>
             </div>
             <div class="col-6">
+                <h1 class="h3 mb-3 fw-normal mt-4"><%= (typeof(error) === 'undefined') ? '' : error %></h1>
                 <% hirdetes.kepek.slice(1).forEach(function(egyKep){ %>
                 <img class="m-auto" src=<%= '/'+egyKep %> width="300px" />
                 <% }); %>

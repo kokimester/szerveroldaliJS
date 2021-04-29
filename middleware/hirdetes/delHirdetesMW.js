@@ -8,15 +8,12 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        console.log('------deleting post!--------');
         if ((typeof res.locals.hirdetes === 'undefined')) {
             return next();
         }
 
         if( typeof(res.locals.impostor) !== 'undefined' && res.locals.impostor === true)
         {
-            console.log(res.locals.impostor);
-            console.log('dont delete other\'s posts');
             res.redirect('/hirdetes');
             return next();
         }
@@ -25,7 +22,6 @@ module.exports = function (objectrepository) {
             if (err) {
                 return next(err);
             }
-            console.log('trying to delete files');
             res.locals.hirdetes.kepek.forEach(function (egyKep) {
                 fs.unlink(egyKep, (err) => {
                     if (err) {

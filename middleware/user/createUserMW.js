@@ -15,7 +15,6 @@ module.exports = function (objectrepository) {
             (typeof req.body.inputPassword2 === 'undefined')
         )
         {
-            console.log('undefined nem adtal meg minden adatot');
             return next();
         }
         if(
@@ -79,9 +78,6 @@ module.exports = function (objectrepository) {
             {
                 return next(err);
             }
-
-            console.log('saving new user');
-            console.log(res.locals.user);
             return res.redirect('/login');
         });
     }

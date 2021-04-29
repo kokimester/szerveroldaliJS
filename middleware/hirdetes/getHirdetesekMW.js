@@ -8,13 +8,11 @@ module.exports = function (objectrepository) {
     const HirdetesModel = requireOption(objectrepository, 'HirdetesModel');
 
     return function(req, res, next) {
-        console.log('-----------getHirdetesekMW:-----------')
        
         if(typeof(req.body.searchBy) !== 'undefined' && req.body.searchBy !== null && req.body.searchBy !== '')
         {
             
             const searchBy = req.body.searchBy;
-            console.log('trying to find hirdetesek which contains: '+searchBy);
             HirdetesModel.find({ tipus : {$regex : new RegExp(searchBy, 'i') } }).populate('_felado').exec((err,hirdetesek) => {
                 if(err)
                 {

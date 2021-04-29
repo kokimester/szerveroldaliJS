@@ -5,9 +5,6 @@ const crypto = require('crypto');
 module.exports = function (objectrepository) {
     return function(req, res, next) {
 
-        
-        console.log('-----------generateNewPwMW:-----------');
-
         if(typeof res.locals.user === 'undefined')
         {
             return next();

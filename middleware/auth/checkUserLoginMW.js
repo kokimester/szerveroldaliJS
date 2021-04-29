@@ -15,11 +15,9 @@ module.exports = function (objectrepository) {
             req.session.belepve = true;
             req.session.userID = res.locals.user._id;
             return req.session.save((err) => {
-                console.log('user logged in, ID: ' + req.session.userID);
                 return res.redirect('/');
             });
         }
-        console.log('hibas jelszo');
         res.locals.error = "Hibás jelszó!";
         return next();
     }
