@@ -37,3 +37,6 @@ data/diagnostic.data/metrics.interim
 data/journal/WiredTigerLog.0000000006
 data/journal/WiredTigerLog.0000000008
 data/*
+data.tar.xz
+ckt1qi_hazi6_nodata.zip
+ckt1qi_hazi6_withdata.zip
